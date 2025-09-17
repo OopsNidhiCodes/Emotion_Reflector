@@ -1,0 +1,970 @@
+/* Design System Foundation */
+/* Color Palette - CSS Custom Properties */
+:root {
+  /* New Blue-Green Color Theme */
+  --oxford-blue: #111B2F;          /* Primary dark color for headers, navigation */
+  --alice-blue: #EFF7FF;           /* Light backgrounds for main content areas */
+  --persian-green: #019688;        /* Interactive elements, buttons, links */
+  --midnight-green: #173F45;       /* Secondary dark elements, borders, secondary text */
+  --white: #FBFDFF;                /* Content containers, cards, modals */
+  
+  /* Semantic Color Mappings */
+  --color-primary: var(--persian-green);    /* Primary buttons, links */
+  --color-secondary: var(--alice-blue);     /* Main backgrounds, cards */
+  --color-accent: var(--oxford-blue);       /* Headers, navigation, key elements */
+  --color-dark: var(--midnight-green);      /* Secondary text, borders */
+  --color-light: var(--white);              /* Content containers */
+  
+  /* Derived color variations */
+  --color-primary-hover: #017A6B;          /* Darker persian green for hover states */
+  --color-accent-hover: #0D1420;           /* Darker oxford blue for hover states */
+  --color-primary-light: rgba(1, 150, 136, 0.1); /* Light persian green for backgrounds */
+  --color-accent-light: rgba(17, 27, 47, 0.1);   /* Light oxford blue for backgrounds */
+  
+  /* Legacy colors for backward compatibility */
+  --color-mint-green: var(--persian-green);     /* Updated to persian green */
+  --color-purple: var(--oxford-blue);           /* Updated to oxford blue */
+  --color-dark-red: #017A6B;                    /* Updated to darker persian green */
+  --color-light-pink: var(--alice-blue);        /* Updated to alice blue */
+  --color-orange: var(--persian-green);         /* Updated to persian green */
+  --color-teal: var(--midnight-green);          /* Updated to midnight green */
+  --color-dark-navy: var(--oxford-blue);        /* Updated to oxford blue */
+  
+  /* High Contrast Variants for Accessibility */
+  --color-text-primary: var(--oxford-blue);     /* Oxford blue for primary text */
+  --color-text-secondary: var(--midnight-green); /* Midnight green for secondary text */
+  --color-text-muted: #5A6B73;                  /* Lighter midnight green for muted text */
+  --color-focus: var(--persian-green);          /* Persian green for focus indicators */
+  
+  /* Gradient Combinations for Enhanced Visual Interest */
+  --gradient-primary: linear-gradient(135deg, var(--persian-green), var(--midnight-green));
+  --gradient-secondary: linear-gradient(135deg, var(--alice-blue), var(--white));
+  --gradient-accent: linear-gradient(135deg, var(--oxford-blue), var(--midnight-green));
+  --gradient-hero: linear-gradient(135deg, var(--alice-blue) 0%, var(--white) 50%, var(--alice-blue) 100%);
+  --gradient-card: linear-gradient(145deg, rgba(239, 247, 255, 0.8), rgba(251, 253, 255, 0.9));
+
+  /* Animation Timing and Easing Variables */
+  --timing-fast: 0.2s;
+  --timing-medium: 0.3s;
+  --timing-slow: 0.5s;
+  --timing-extra-slow: 0.8s;
+
+  --easing-ease: ease;
+  --easing-ease-in: ease-in;
+  --easing-ease-out: ease-out;
+  --easing-ease-in-out: ease-in-out;
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Glassmorphism Properties */
+  --glass-blur: 10px;
+  --glass-blur-light: 6px;
+  --glass-blur-heavy: 16px;
+  --glass-opacity: 0.1;
+  --glass-border-opacity: 0.2;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --glass-shadow-light: 0 4px 16px rgba(0, 0, 0, 0.05);
+  --glass-shadow-heavy: 0 12px 48px rgba(0, 0, 0, 0.15);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+}
+
+/* Glassmorphism Base Utility Classes */
+.glass {
+  background: rgba(239, 247, 255, 0.1);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(239, 247, 255, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-light {
+  background: rgba(239, 247, 255, 0.15);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid rgba(239, 247, 255, 0.2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow-light);
+}
+
+.glass-heavy {
+  background: rgba(239, 247, 255, 0.2);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border: 1px solid rgba(239, 247, 255, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow-heavy);
+}
+
+/* Animation Utility Classes */
+.transition-fast {
+  transition: all var(--timing-fast) var(--easing-smooth);
+}
+
+.transition-medium {
+  transition: all var(--timing-medium) var(--easing-smooth);
+}
+
+.transition-slow {
+  transition: all var(--timing-slow) var(--easing-smooth);
+}
+
+/* Hover Effects */
+.hover-scale {
+  transition: transform var(--timing-fast) var(--easing-smooth);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-lift {
+  transition: transform var(--timing-fast) var(--easing-smooth), 
+              box-shadow var(--timing-fast) var(--easing-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Glassmorphism Card Variants */
+.glass-primary {
+  background: rgba(1, 150, 136, 0.1);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(1, 150, 136, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(1, 150, 136, 0.1);
+}
+
+.glass-success {
+  background: rgba(1, 150, 136, 0.1);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(1, 150, 136, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(1, 150, 136, 0.1);
+}
+
+.glass-error {
+  background: rgba(220, 38, 127, 0.1);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(220, 38, 127, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(220, 38, 127, 0.1);
+}
+
+.glass-warning {
+  background: rgba(245, 158, 11, 0.1);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.1);
+}
+
+.glass-info {
+  background: rgba(17, 27, 47, 0.1);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(17, 27, 47, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(17, 27, 47, 0.1);
+}
+
+/* Enhanced Hover Effects for Glass Cards */
+.glass-hover {
+  transition: all var(--timing-medium) var(--easing-smooth);
+}
+
+.glass-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.glass-hover:focus {
+  outline: none;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(114, 9, 183, 0.2);
+}
+
+.glass-hover:active {
+  transform: translateY(-1px) scale(1.005);
+  transition-duration: var(--timing-fast);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  :root {
+    --glass-blur: 4px;
+    --glass-blur-light: 2px;
+    --glass-blur-heavy: 6px;
+  }
+  
+  /* Disable hover effects on touch devices */
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .glass-hover:hover {
+    transform: none;
+  }
+  
+  /* Optimize glassmorphism for mobile performance */
+  .glass,
+  .glass-light,
+  .glass-heavy,
+  .glass-primary,
+  .glass-success,
+  .glass-error,
+  .glass-warning,
+  .glass-info {
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  }
+}
+
+/* Tablet Optimizations */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :root {
+    --glass-blur: 8px;
+    --glass-blur-light: 5px;
+    --glass-blur-heavy: 12px;
+  }
+}
+
+/* Keyframe Animations with Hardware Acceleration */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(20px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Smooth Memory Page Animations */
+@keyframes memoryFadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes memorySlideInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* Animation Utility Classes */
+.fade-in {
+  animation: fadeIn var(--timing-medium) var(--easing-smooth) forwards;
+  will-change: opacity;
+}
+
+.fade-in-up {
+  animation: fadeInUp var(--timing-slow) var(--easing-smooth) forwards;
+  will-change: opacity, transform;
+}
+
+.fade-in-down {
+  animation: fadeInDown var(--timing-slow) var(--easing-smooth) forwards;
+  will-change: opacity, transform;
+}
+
+.slide-in-left {
+  animation: slideInLeft var(--timing-medium) var(--easing-smooth) forwards;
+  will-change: opacity, transform;
+}
+
+.slide-in-right {
+  animation: slideInRight var(--timing-medium) var(--easing-smooth) forwards;
+  will-change: opacity, transform;
+}
+
+/* Enhanced Memory Page Animation Classes */
+.memory-fade-in-up {
+  animation: memoryFadeInUp var(--timing-extra-slow) var(--easing-smooth) forwards;
+  will-change: opacity, transform;
+  opacity: 0;
+  transform: translate3d(0, 30px, 0) scale(0.95);
+}
+
+.memory-slide-in-left {
+  animation: memorySlideInLeft var(--timing-extra-slow) var(--easing-smooth) forwards;
+  will-change: opacity, transform;
+  opacity: 0;
+  transform: translate3d(-40px, 0, 0) scale(0.98);
+}
+
+/* Staggered Animation Delays with Hardware Acceleration */
+.animation-delay-100 {
+  animation-delay: 0.1s;
+  will-change: opacity, transform;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+  will-change: opacity, transform;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+  will-change: opacity, transform;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+  will-change: opacity, transform;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+  will-change: opacity, transform;
+}
+
+/* Enhanced Button System */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--timing-medium) var(--easing-smooth);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  outline: none;
+  user-select: none;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--timing-slow) var(--easing-smooth);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Button Sizes */
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  min-height: 36px;
+}
+
+.btn-medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  min-height: 52px;
+}
+
+/* Primary Button - Persian Green */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 16px rgba(1, 150, 136, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(1, 150, 136, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(1.01);
+  transition-duration: var(--timing-fast);
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 3px rgba(1, 150, 136, 0.3), 0 8px 24px rgba(1, 150, 136, 0.4);
+}
+
+/* Secondary Button - Oxford Blue */
+.btn-secondary {
+  background: var(--color-accent);
+  color: white;
+  box-shadow: 0 4px 16px rgba(17, 27, 47, 0.3);
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(17, 27, 47, 0.4);
+}
+
+.btn-secondary:active {
+  transform: translateY(-1px) scale(1.01);
+  transition-duration: var(--timing-fast);
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 0 3px rgba(17, 27, 47, 0.3), 0 8px 24px rgba(17, 27, 47, 0.4);
+}
+
+/* Success Button - Persian Green */
+.btn-success {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  color: white;
+  box-shadow: 0 4px 16px rgba(1, 150, 136, 0.3);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(1, 150, 136, 0.4);
+}
+
+.btn-success:active {
+  transform: translateY(-1px) scale(1.01);
+  transition-duration: var(--timing-fast);
+}
+
+.btn-success:focus {
+  box-shadow: 0 0 0 3px rgba(1, 150, 136, 0.3), 0 8px 24px rgba(1, 150, 136, 0.4);
+}
+
+/* Danger Button - Error Red */
+.btn-danger {
+  background: linear-gradient(135deg, #DC2626, #B91C1C);
+  color: white;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #B91C1C, #DC2626);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+}
+
+.btn-danger:active {
+  transform: translateY(-1px) scale(1.01);
+  transition-duration: var(--timing-fast);
+}
+
+.btn-danger:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3), 0 8px 24px rgba(220, 38, 38, 0.4);
+}
+
+/* Outline Button Variants */
+.btn-outline {
+  background: rgba(251, 253, 255, 0.1);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: var(--glass-shadow-light);
+}
+
+.btn-outline:hover {
+  background: rgba(1, 150, 136, 0.1);
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(1, 150, 136, 0.2);
+}
+
+.btn-outline:active {
+  transform: translateY(-1px) scale(1.01);
+  transition-duration: var(--timing-fast);
+}
+
+.btn-outline:focus {
+  box-shadow: 0 0 0 3px rgba(1, 150, 136, 0.3), var(--glass-shadow);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-accent);
+  border: none;
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  background: rgba(17, 27, 47, 0.1);
+  color: var(--color-accent-hover);
+  transform: translateY(-1px) scale(1.01);
+}
+
+.btn-ghost:active {
+  transform: translateY(0) scale(1);
+  transition-duration: var(--timing-fast);
+}
+
+.btn-ghost:focus {
+  background: rgba(17, 27, 47, 0.1);
+  box-shadow: 0 0 0 2px rgba(17, 27, 47, 0.3);
+}
+
+/* Disabled State */
+.btn-disabled,
+.btn:disabled {
+  background: rgba(156, 163, 175, 0.8) !important;
+  color: rgba(107, 114, 128, 0.8) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: rgba(209, 213, 219, 0.8) !important;
+}
+
+.btn-disabled::before,
+.btn:disabled::before {
+  display: none;
+}
+
+/* Loading State */
+.btn-loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.btn-content-loading {
+  opacity: 0.7;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: initial;
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Button Groups */
+.btn-group {
+  display: inline-flex;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--glass-shadow-light);
+}
+
+.btn-group .btn {
+  border-radius: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-group .btn:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+.btn-group .btn:last-child {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  border-right: none;
+}
+
+.btn-group .btn:only-child {
+  border-radius: var(--radius-md);
+  border-right: none;
+}
+
+/* Button Demo Styles */
+.button-demo {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.button-demo h2 {
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.demo-section {
+  margin-bottom: 3rem;
+}
+
+.demo-section h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 48px; /* Better touch targets */
+  }
+  
+  .btn-small {
+    min-height: 44px;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .btn-medium {
+    min-height: 48px;
+    padding: 1rem 1.75rem;
+  }
+  
+  .btn-large {
+    min-height: 52px;
+    padding: 1.25rem 2.25rem;
+  }
+  
+  /* Disable hover effects on touch devices */
+  .btn:hover {
+    transform: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .button-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .button-demo {
+    padding: 1rem;
+  }
+  
+  /* Responsive padding for Memory and Mentor pages */
+  .memory-page,
+  .mentor-page {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* Performance Optimizations */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  .achievement-card:nth-child(n+4) {
+    animation-delay: 0.4s;
+  }
+  
+  .action-steps li:nth-child(n+3),
+  .resources li:nth-child(n+3) {
+    animation-delay: 0.3s;
+  }
+  
+  /* Use transform3d for hardware acceleration */
+  .btn,
+  .glass,
+  .achievement-card,
+  .mentor-advice,
+  .memory-page,
+  .add-achievement-form {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+  }
+  
+  /* Minimize backdrop-filter usage on mobile for performance */
+  .glass-light,
+  .mentor-input,
+  .add-achievement-form,
+  .achievement-card,
+  .mentor-advice {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(251, 253, 255, 0.25);
+  }
+  
+  /* Keep backdrop-filter only for critical UI elements */
+  .bottom-input-bar,
+  .navbar,
+  .loading {
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  }
+  
+  /* Optimize Memory page animations for mobile */
+  .memory-fade-in-up,
+  .memory-slide-in-left {
+    animation-duration: var(--timing-medium);
+  }
+}
+
+/* CPU-intensive animation optimizations */
+@media (max-width: 480px) {
+  /* Disable complex animations on very small screens */
+  .achievement-card,
+  .mentor-advice,
+  .action-steps li,
+  .resources li {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  /* Use simpler transitions */
+  * {
+    transition-duration: 0.15s !important;
+  }
+}
+
+/* Accessibility Improvements */
+
+/* Focus Management */
+.btn:focus,
+.nav-link:focus,
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  z-index: 1000;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --glass-opacity: 0.3;
+    --glass-border-opacity: 0.5;
+    /* Increase contrast for better readability */
+    --color-text-primary: #000000;
+    --color-text-secondary: #1a1a1a;
+    --color-primary: #017A6B; /* Darker persian green for better contrast */
+    --color-accent: #0A0F1A; /* Darker oxford blue for better contrast */
+  }
+  
+  .glass,
+  .achievement-card,
+  .mentor-advice,
+  .add-achievement-form {
+    border-width: 2px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
+  }
+  
+  /* Ensure text remains readable in high contrast mode */
+  .achievement-description,
+  .advice-text,
+  .memory-page p,
+  .mentor-page p {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+}
+
+/* Color Contrast Improvements */
+.achievement-description,
+.advice-text {
+  color: var(--color-text-primary);
+}
+
+.memory-page p,
+.mentor-page p {
+  color: var(--color-text-secondary);
+}
+
+.achievement-meta {
+  color: var(--color-text-muted);
+}
+
+/* Ensure sufficient contrast for all text */
+.achievement-header h3,
+.mentor-advice h3,
+.add-achievement-form h3 {
+  color: var(--color-text-primary);
+}
+
+.loading-message,
+.alert-content {
+  color: var(--color-text-primary);
+}
+
+/* Keyboard Navigation Improvements */
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(1, 150, 136, 0.2);
+}
+
+.achievement-card:focus-within,
+.mentor-advice:focus-within {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 4px;
+}
+
+
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ARIA Live Regions */
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove transforms that might cause motion sickness */
+  .btn:hover,
+  .achievement-card:hover,
+  .glass:hover {
+    transform: none !important;
+  }
+  
+  /* Keep focus indicators visible */
+  .btn:focus,
+  .nav-link:focus {
+    transition-duration: 0s !important;
+  }
+}

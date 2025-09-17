@@ -1,0 +1,444 @@
+/* Enhanced Input Components with Glassmorphism */
+
+/* Base Input Wrapper */
+.enhanced-input-wrapper,
+.enhanced-textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Enhanced Input Styles */
+.enhanced-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
+  color: var(--color-dark);
+  background: rgba(239, 247, 255, 0.1);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 2px solid rgba(239, 247, 255, 0.2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow-light);
+  transition: all var(--timing-medium) var(--easing-smooth);
+  outline: none;
+  resize: none;
+}
+
+.enhanced-input::placeholder {
+  color: rgba(55, 65, 81, 0.6);
+  transition: all var(--timing-medium) var(--easing-smooth);
+}
+
+/* Enhanced Textarea Styles */
+.enhanced-textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
+  color: var(--color-dark);
+  background: rgba(239, 247, 255, 0.1);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 2px solid rgba(239, 247, 255, 0.2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow-light);
+  transition: all var(--timing-medium) var(--easing-smooth);
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.enhanced-textarea::placeholder {
+  color: rgba(55, 65, 81, 0.6);
+  transition: all var(--timing-medium) var(--easing-smooth);
+}
+
+/* Focus States */
+.enhanced-input--focused,
+.enhanced-textarea--focused {
+  background: rgba(239, 247, 255, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 
+    var(--glass-shadow),
+    0 0 0 3px rgba(1, 150, 136, 0.1),
+    0 0 20px rgba(1, 150, 136, 0.2);
+  transform: translateY(-1px) scale(1.01);
+}
+
+.enhanced-input--focused::placeholder,
+.enhanced-textarea--focused::placeholder {
+  color: rgba(1, 150, 136, 0.7);
+  transform: translateX(4px);
+}
+
+/* Hover States */
+.enhanced-input:hover:not(:disabled):not(.enhanced-input--focused),
+.enhanced-textarea:hover:not(:disabled):not(.enhanced-textarea--focused) {
+  background: rgba(239, 247, 255, 0.12);
+  border-color: rgba(239, 247, 255, 0.3);
+  box-shadow: var(--glass-shadow);
+  transform: translateY(-1px);
+}
+
+/* Has Value State */
+.enhanced-input--has-value,
+.enhanced-textarea--has-value {
+  background: rgba(239, 247, 255, 0.12);
+  border-color: rgba(1, 150, 136, 0.3);
+}
+
+/* Validation States */
+.enhanced-input--error,
+.enhanced-textarea--error {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: #DC2626;
+  box-shadow: 
+    var(--glass-shadow-light),
+    0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.enhanced-input--error:focus,
+.enhanced-textarea--error:focus {
+  box-shadow: 
+    var(--glass-shadow),
+    0 0 0 3px rgba(220, 38, 38, 0.2),
+    0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.enhanced-input--success,
+.enhanced-textarea--success {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  box-shadow: 
+    var(--glass-shadow-light),
+    0 0 0 2px rgba(1, 150, 136, 0.1);
+}
+
+.enhanced-input--success:focus,
+.enhanced-textarea--success:focus {
+  box-shadow: 
+    var(--glass-shadow),
+    0 0 0 3px rgba(1, 150, 136, 0.2),
+    0 0 20px rgba(1, 150, 136, 0.3);
+}
+
+/* Disabled States */
+.enhanced-input--disabled,
+.enhanced-textarea--disabled {
+  background: rgba(156, 163, 175, 0.1);
+  border-color: rgba(156, 163, 175, 0.2);
+  color: rgba(55, 65, 81, 0.5);
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: var(--glass-shadow-light);
+}
+
+.enhanced-input--disabled::placeholder,
+.enhanced-textarea--disabled::placeholder {
+  color: rgba(156, 163, 175, 0.5);
+}
+
+/* Animated Placeholder Labels */
+.enhanced-input-label,
+.enhanced-textarea-label {
+  position: absolute;
+  left: 1.25rem;
+  top: 1rem;
+  color: rgba(55, 65, 81, 0.6);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all var(--timing-medium) var(--easing-smooth);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  transform-origin: left center;
+}
+
+.enhanced-input-label--active,
+.enhanced-textarea-label--active {
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  transform: scale(0.9);
+  background: rgba(239, 247, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Micro-animations for interaction feedback */
+@keyframes inputPulse {
+  0% {
+    box-shadow: var(--glass-shadow-light);
+  }
+  50% {
+    box-shadow: 
+      var(--glass-shadow),
+      0 0 0 2px rgba(1, 150, 136, 0.1);
+  }
+  100% {
+    box-shadow: var(--glass-shadow-light);
+  }
+}
+
+@keyframes inputGlow {
+  0% {
+    box-shadow: 
+      var(--glass-shadow),
+      0 0 0 3px rgba(1, 150, 136, 0.1);
+  }
+  50% {
+    box-shadow: 
+      var(--glass-shadow),
+      0 0 0 3px rgba(1, 150, 136, 0.2),
+      0 0 20px rgba(1, 150, 136, 0.3);
+  }
+  100% {
+    box-shadow: 
+      var(--glass-shadow),
+      0 0 0 3px rgba(1, 150, 136, 0.1);
+  }
+}
+
+/* Apply pulse animation on first focus */
+.enhanced-input:focus:not(.enhanced-input--has-value),
+.enhanced-textarea:focus:not(.enhanced-textarea--has-value) {
+  animation: inputPulse var(--timing-slow) var(--easing-smooth);
+}
+
+/* Apply glow animation for validation success */
+.enhanced-input--success:focus,
+.enhanced-textarea--success:focus {
+  animation: inputGlow var(--timing-extra-slow) var(--easing-smooth) infinite;
+}
+
+/* Special styling for bottom input bar */
+.bottom-input-bar .enhanced-input,
+.bottom-input-bar .enhanced-textarea {
+  background: rgba(239, 247, 255, 0.95);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 2px solid rgba(1, 150, 136, 0.1);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(239, 247, 255, 0.5);
+}
+
+.bottom-input-bar .enhanced-input:focus,
+.bottom-input-bar .enhanced-textarea:focus {
+  background: rgba(239, 247, 255, 0.98);
+  border-color: var(--color-primary);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    0 0 0 3px rgba(1, 150, 136, 0.1),
+    0 0 20px rgba(1, 150, 136, 0.2),
+    inset 0 1px 0 rgba(239, 247, 255, 0.7);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Dark theme inputs (for mirror input side) */
+.mirror-input-side .enhanced-input,
+.mirror-input-side .enhanced-textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.mirror-input-side .enhanced-input::placeholder,
+.mirror-input-side .enhanced-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mirror-input-side .enhanced-input:focus,
+.mirror-input-side .enhanced-textarea:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    var(--glass-shadow-heavy),
+    0 0 0 3px rgba(255, 255, 255, 0.1),
+    0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.mirror-input-side .enhanced-input-label,
+.mirror-input-side .enhanced-textarea-label {
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(2, 48, 71, 0.8);
+}
+
+.mirror-input-side .enhanced-input-label--active,
+.mirror-input-side .enhanced-textarea-label--active {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(2, 48, 71, 0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enhanced-input,
+  .enhanced-textarea {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  }
+
+  .enhanced-input-label,
+  .enhanced-textarea-label {
+    left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .enhanced-input-label--active,
+  .enhanced-textarea-label--active {
+    font-size: 0.8rem;
+  }
+
+  /* Reduce animations on mobile for performance */
+  .enhanced-input:focus,
+  .enhanced-textarea:focus {
+    transform: none;
+    animation: none;
+  }
+
+  .enhanced-input:hover,
+  .enhanced-textarea:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .enhanced-input,
+  .enhanced-textarea {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .enhanced-input-label,
+  .enhanced-textarea-label {
+    left: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .enhanced-input-label--active,
+  .enhanced-textarea-label--active {
+    font-size: 0.75rem;
+  }
+}
+
+/* Integration with existing form styles */
+.form-row .enhanced-input-wrapper {
+  flex: 1;
+}
+
+.add-achievement-form .enhanced-input-wrapper,
+.add-achievement-form .enhanced-textarea-wrapper {
+  margin-bottom: 1rem;
+}
+
+.mentor-input .enhanced-textarea-wrapper {
+  margin-bottom: 1rem;
+}
+
+/* Override existing form input styles when using enhanced components */
+.enhanced-input.form-input,
+.enhanced-textarea.form-textarea {
+  border: 2px solid rgba(239, 247, 255, 0.2);
+  background: rgba(239, 247, 255, 0.1);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+}
+
+.enhanced-input.question-input,
+.enhanced-textarea.question-input {
+  border: 2px solid rgba(239, 247, 255, 0.2);
+  background: rgba(239, 247, 255, 0.1);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+}
+
+/* Ensure proper spacing in bottom input bar */
+.bottom-doubt-input .enhanced-textarea-wrapper {
+  flex: 1;
+  min-width: 0;
+  /* Ensure wrapper doesn't interfere with flex alignment */
+  display: flex;
+  align-items: stretch;
+}
+
+.bottom-doubt-input .enhanced-textarea.bottom-textarea {
+  min-height: 44px !important;
+  max-height: 120px;
+  resize: none;
+  /* Ensure proper alignment with buttons */
+  align-self: stretch;
+  box-sizing: border-box;
+  /* Remove transforms that might affect alignment */
+  transform: none !important;
+  /* Ensure consistent padding matches button padding */
+  padding: 0.75rem !important;
+}
+
+/* Override focus state transforms for bottom textarea to maintain alignment */
+.bottom-doubt-input .enhanced-textarea.bottom-textarea.enhanced-textarea--focused {
+  transform: none !important;
+}
+
+/* Validation state indicators */
+.enhanced-input-wrapper.has-error .enhanced-input,
+.enhanced-textarea-wrapper.has-error .enhanced-textarea {
+  border-color: #DC2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.enhanced-input-wrapper.has-success .enhanced-input,
+.enhanced-textarea-wrapper.has-success .enhanced-textarea {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+/* Loading state for inputs */
+.enhanced-input--loading,
+.enhanced-textarea--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.enhanced-input--loading::after,
+.enhanced-textarea--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(1, 150, 136, 0.2);
+  border-top: 2px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translateY(-50%);
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .enhanced-input,
+  .enhanced-textarea,
+  .enhanced-input-label,
+  .enhanced-textarea-label {
+    transition: none;
+    animation: none;
+    transform: none !important;
+  }
+  
+  .enhanced-input--loading::after,
+  .enhanced-textarea--loading::after {
+    animation: none;
+  }
+}
