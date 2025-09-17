@@ -1,0 +1,68 @@
+# ...existing code...
+.env
+firebase-key.json
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+venv*/
+
+# Environment files
+.env
+.env.*
+.env.development
+
+# Dependencies / build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Test / coverage
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+
+# Type checker caches
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# IDE/editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Service account / private keys
+firebase-key.json
+*.key
+*.pem
+*.p12
+
+# Local secrets / instances
+secrets.json
+instance/
+
+node_modules/
