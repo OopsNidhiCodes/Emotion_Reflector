@@ -4,7 +4,7 @@ export const geminiService = {
   // Mirror endpoint - analyze doubts
   async analyzeDubt(text) {
     try {
-      const response = await apiClient.post("/mirror", { text })
+      const response = await apiClient.post("/api/mirror/analyze", { text })
       return response.data
     } catch (error) {
       console.error("Error analyzing doubt:", error)
@@ -15,7 +15,7 @@ export const geminiService = {
   // Mentor endpoint - get advice
   async getMentorAdvice(question) {
     try {
-      const response = await apiClient.post("/mentor", { question })
+        const response = await apiClient.post("/api/mentor/chat", { message: question })
       return response.data
     } catch (error) {
       console.error("Error getting mentor advice:", error)
@@ -26,7 +26,7 @@ export const geminiService = {
   // Memory endpoints - if needed for server-side processing
   async processMemory(data) {
     try {
-      const response = await apiClient.post("/memory", data)
+      const response = await apiClient.post("/api/memory", data)
       return response.data
     } catch (error) {
       console.error("Error processing memory:", error)
