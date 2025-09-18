@@ -11,7 +11,8 @@ function MirrorPage() {
 
   const handleAnalyze = async () => {
     if (doubt.trim()) {
-      await analyzeDubt(doubt)
+      // If you have achievements in state, pass them here; otherwise, use an empty array
+      await analyzeDubt(doubt, [])
     }
   }
 

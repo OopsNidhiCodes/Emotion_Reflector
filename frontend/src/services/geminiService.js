@@ -2,9 +2,9 @@ import apiClient from "./apiClient.js"
 
 export const geminiService = {
   // Mirror endpoint - analyze doubts
-  async analyzeDubt(text) {
+  async analyzeDubt({ text, achievements }) {
     try {
-      const response = await apiClient.post("/api/mirror/analyze", { text })
+      const response = await apiClient.post("/api/mirror/analyze", { text, achievements })
       return response.data
     } catch (error) {
       console.error("Error analyzing doubt:", error)
