@@ -18,7 +18,8 @@ function MentorPage() {
     setError(null)
 
     try {
-      const response = await geminiService.getMentorAdvice(question)
+      // Always send both message and context fields
+      const response = await geminiService.getMentorAdvice(question, "")
       setAdvice(response)
     } catch (err) {
       setError(err.message || "Failed to get mentor advice")

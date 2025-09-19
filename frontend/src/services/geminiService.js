@@ -13,9 +13,9 @@ export const geminiService = {
   },
 
   // Mentor endpoint - get advice
-  async getMentorAdvice(question) {
+  async getMentorAdvice(question, context = "") {
     try {
-        const response = await apiClient.post("/api/mentor/chat", { message: question })
+      const response = await apiClient.post("/api/mentor/chat", { message: question, context })
       return response.data
     } catch (error) {
       console.error("Error getting mentor advice:", error)
