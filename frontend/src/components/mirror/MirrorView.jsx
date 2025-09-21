@@ -3,6 +3,11 @@ import EvidenceCard from "./EvidenceCard.jsx"
 function MirrorView({ result }) {
   if (!result) return null
 
+  // Debug logging
+  console.log("MirrorView result:", result)
+  console.log("Evidence array:", result.evidence)
+  console.log("Evidence length:", result.evidence?.length)
+
   return (
     <div className="mirror-view">
       <div className="comparison">
@@ -32,6 +37,8 @@ function MirrorView({ result }) {
           </div>
         </div>
       )}
+
+      {/* Remove debug section after confirming it works */}
     </div>
   )
 }
