@@ -1,7 +1,0 @@
-.git
-node_modules
-dist
-.kiro
-frontend-README.md
-root-gitignore-template.txt
-copy-exclude.txt
