@@ -1,0 +1,17 @@
+{
+  "type": "service_account",
+  "project_id": "magicmirror-30d73",
+  "private_key_id": "6b67d684a8c927c9112fd4b071034f57b8389943",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC29It9iGfhddWN\nqWP5CWh8crMCaHqUFVY31ppxiPyrQR1B8pl4+QCXt0IAQqjosLIcs7NeioIDBskx\nUA03S5yIDLPSFNC74RJWOpvMGiiIg+PXL3xvBG7ohzzSztjygOtR+v9ZSzf01TwT\nrj49JPQNwxBJArpcpJXOMCr6L0ffBKY+3D0qwswkFNUIncKsvFrtBDGJ6pioAaBe\nUSVkz/DKqNRbTaSAIomhUHGQZxPUqiapmfZ1UhRev066UxXB2tT0GDEX0GiSXW2j\nFsgdcSHkLDzp3AYRip6jbsxV0e5l299s0ISj6+xKRgsyeD+l1q6mEA9W3Ek0Ewwn\n0sGPuPK9AgMBAAECggEAAQY4TrUIDIYt8nus4dzN3zPUMT1XrFhnPGug6eWlW9Rt\nlGww3vFunFWBaCzMsyAkIHmCwFLVsgHPIrh1mSY8+N0GAl/X9alSV+BpoA2ocEU5\nbhUSZQZjvueyQpA3vOSAYhvd40iCxnCNhCMGWa4eiKzbfJEoQnMFx1r+g+/mVDG5\nIQhCD5jtC/r69D+N7Nwm6F1sEZ0ZpgN7RluNXQkA0lNyNW00BPcp1KPB7BKfhbAG\nkcoDkmXijQmXGQAstQN446h8NtqWkfNWyhIxMo/2lQVXUxGZRUhFbJUzYSC1ndBL\noCi1w1KpWGdkV7mzeK+aDsKN0k+VkvJYjGtcV+FO2QKBgQDdPAWy9nW98hkeRqqb\nvdLp4ri8tW0rT1KPErIpMN6k1xEE8rKvctBlV2u760a+3AZpMk9cQ3J0kgJKDpRV\nbGQ2EJmZRkf7WTY2eDQB7ZcwpQ2UgTuFV12I1kXzn6nHBmykQBVyMJzSlbcgkmEr\nhzmAjj+/KE192kyiOAXgtMC0BQKBgQDTtJls8YE5hLNfYohXE5qWpXqKJKqYWbKl\nQ16GlBYkedS4EO4jY9M+TJ9rSIhIMhvbXS99IITmYV4YFcfoukXoOzPLgLyiGwpx\nMrCVopHrcYZCQfU2Nr7gwuXG3YPn+1En5z/Ok1cBtIJNU7gNoNwJROmMVkbHQlds\ne/x86lR5WQKBgF/34o0AZpDwDT9Z7jZDANQeWn7ZwLKR5UFVHd3KajpdZO+djC+Z\ngZcEdiJ9bCHs9gb6IPzn8SVqFP4lFul7bHkbeFXJ6/23dFHqkLzpYLVkU+DAsp4k\nCNoMASoub4p7WfNiLStstQqQkXDarrYgIayHiFWW2Q6n/Kg93ybboeA1AoGAZM/T\nX7WBO8qdQAbDtfN34dTbDX14XyQXlesG0D8kbCo3yY8GV4Ppy/jg0U2w1/BEo6k0\nO/mIT8x96io1D/Xj5DqM55NeQDNwPYdN33OS2PMuY87U3gQj0RP+JzzE22spsj7E\ne7Jd9Eno4rnDI3o+TYurS1CqU6ibyOUhzronj8ECgYBcj0qb5Ec6cl5EH9gZWeXS\nSU2krev+0AQb+lFcAb/sZemFfcSHgS/tqKHZyn464kOy3A/Mn0XaIy1Y7TrQyKp7\nyOMksXw7KqUDbKNvZ6DLCtaigDreErlEOD/p2SPdZww2bpzc3ycuBTelAom6xtPm\n1c22rziM3+ReK+IVVybdbg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@magicmirror-30d73.iam.gserviceaccount.com",
+  "client_id": "107290006755522763174",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40magicmirror-30d73.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com",
+  "apiClient": {
+    "post": "/api/mirror/analyze",
+    "text": ""
+  }
+}
